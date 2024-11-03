@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool isGrounded;
 	public bool groundHit;
 
+	RaycastHit slopeHit;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 	private bool OnSlope()
 	{
-		if (Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit slopeHit, groundDistance, groundMask))
+		if (Physics.Raycast(groundCheck.position, Vector3.down, out slopeHit, groundDistance, groundMask))
 		{
 			return slopeHit.normal != Vector3.up;
 		}
